@@ -2,17 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Run Test 1') {
             steps {
-                echo 'Checking out code from GitHub...'
-                // Jenkins does this automatically when you configure it later
+                echo 'Running the first python script...'
+                sh 'python3 test1.py'
             }
         }
-        
-        stage('Run Python') {
+
+        // THIS IS THE NEW PART
+        stage('Run Loop') {
             steps {
-                echo 'Running the Python script...'
-                sh 'python3 test1.py'
+                echo 'Running the loop script...'
+                sh 'python3 loop1.py'
             }
         }
     }
